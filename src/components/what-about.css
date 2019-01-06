@@ -16,10 +16,10 @@ h3 {
 }
 
 .instructions {
-  /* list-style-type: decimal;   */
   display: block;
   width: 500px;
   margin: auto;
+  /* list-style-type: decimal;   */
 }
 
 .instructions li {
@@ -28,7 +28,7 @@ h3 {
   list-style-type: decimal;
 }
 
-.what-about-form {
+.what-about-section {
   width: 600px;
   margin: auto;
   border: 1px solid rgba(0,0,0,0.1);
