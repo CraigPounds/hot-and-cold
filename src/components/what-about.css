@@ -1,15 +1,27 @@
 .what-about {
   width: 98%;
+  height: 96%;
   position: absolute;
+  line-height: 2em;
+  font-size: 1.2em;
+  /* font-weight: 400; */
   background: #E74C3C;
-  color: #FFFFFF;
+  color: #FFFFFF;  
+}
+
+.what-about-section {
+  width: 600px;
+  margin: 130px auto;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 0 0 3px 3px;  
 }
 
 h3 {
+  margin-bottom: 20px;
   padding: 0.4em;
   text-align: center;
-  font-size: 2.4em;
-  font-weight: 300;
+  font-size: 2.2em;
+  font-weight: 400;
   opacity: 0.8;
   background: rgba(0,0,0,0.1);
   border-radius: 3px 3px 0 0;
@@ -22,17 +34,24 @@ h3 {
   /* list-style-type: decimal;   */
 }
 
-.instructions li {
-  display: block;
-  text-align: left;
-  list-style-type: decimal;
+p {
+  width: 518px;
+  margin: auto;
+  padding: 10px 20px;
 }
 
-.what-about-section {
-  width: 600px;
-  margin: auto;
-  border: 1px solid rgba(0,0,0,0.1);
-  border-radius: 0 0 3px 3px;
+p,
+.instructions li {
+  text-align: left;
+  font-size: 1em;
+}
+
+.instructions li {
+  display: block;
+  width: 498px;
+  padding: 2px 0;
+  line-height: 1.6em;
+  /* list-style-type: decimal; */
 }
 
 .underlined {
@@ -40,9 +59,9 @@ h3 {
 }
 
 .got-it-button {
-  font-size: 0.9em;
-  padding: 0.5em 2em;
-  margin: 22px;
+  font-size: 0.8em;
+  padding: 0.4em 1.9em;
+  margin-bottom: 22px;
   border-radius: 3px;
   background: #1F253D;
   color: #95A5A6;

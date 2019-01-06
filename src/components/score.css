@@ -1,6 +1,7 @@
 .guess-number {
   margin: 0.5em auto;
   padding: 0.5em 0;
+  text-align: center;
   font-size: 2em;
   background: #394264;
   color: #000000;
