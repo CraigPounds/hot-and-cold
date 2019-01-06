@@ -22,11 +22,11 @@ export default class Game extends React.Component {
           onWhat={() => this.aboutPage()}
           onNewGame={() => this.newGame()}
         />
-        <div className="test">
+        <main className="main">
           <Result />
           <FormHotCold />
           <Status />
-        </div>
+        </main>
       </div>
     );
   };

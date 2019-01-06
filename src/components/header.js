@@ -15,9 +15,9 @@ export default function Header(props) {
           <li className="float-right">
             <a href="#new-game" className="new-game" onClick={() => props.onNewGame()}>+ NEW GAME</a>
           </li>
-        </ul>
-        <h1>HOT or COLD</h1>
+        </ul>        
       </nav>
+      <h1>HOT or COLD</h1>
     </div>
   );
 };

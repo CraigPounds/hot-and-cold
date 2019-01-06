@@ -4,6 +4,6 @@ import './result.css';
 export default function Result(props) {
 
   return (
-    <h2 className="result">cold</h2>
+    <h2 className="result">Make your Guess!</h2>
   );
 };
