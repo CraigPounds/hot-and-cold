@@ -1,16 +1,16 @@
 import React from 'react';
-import './status.css';
+import './score.css';
 
-export default function Status(props) {
+export default function Score(props) {
 
   return (
-    <div className="status">
+    <section className="score">
       <p className="guess-number">Guess #<span>3</span>!</p>
       <ul className="previous-guesses">
         <li>99</li>
-        <li>99</li>
-        <li>99</li>
+        <li>98</li>
+        <li>97</li>
       </ul>
-    </div>
+    </section>
   );
 };

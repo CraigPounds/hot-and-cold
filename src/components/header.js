@@ -6,7 +6,7 @@ export default function Header(props) {
   
 
   return (
-    <div className="header">
+    <header className="header" role="banner">
       <nav className="navigation">
         <ul>
           <li>
@@ -18,6 +18,6 @@ export default function Header(props) {
         </ul>        
       </nav>
       <h1>HOT or COLD</h1>
-    </div>
+    </header>
   );
 };

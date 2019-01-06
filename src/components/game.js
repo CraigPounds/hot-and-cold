@@ -1,9 +1,10 @@
 import React from 'react';
 import './game.css';
+import WhatAbout from './what-about';
 import Header from './header';
-import Result from './result';
+import Comment from './comment';
 import FormHotCold from './form-hot-cold';
-import Status from './status';
+import Score from './score';
 
 export default class Game extends React.Component {
 
@@ -15,19 +16,38 @@ export default class Game extends React.Component {
     alert('new game');
   }
 
+  // render() {
+  //   return (
+  //     <div className="page">
+  //     <WhatAbout />
+  //       <div className="game">
+  //         <Header 
+  //           onWhat={() => this.aboutPage()}
+  //           onNewGame={() => this.newGame()}
+  //         />
+  //         <main className="main">
+  //           <Comment />
+  //           <FormHotCold />
+  //           <Score />
+  //         </main>
+  //       </div>        
+  //     </div>
+  //   );
+  // };
+
   render() {
-    return (
+    return (     
       <div className="game">
         <Header 
           onWhat={() => this.aboutPage()}
           onNewGame={() => this.newGame()}
         />
         <main className="main">
-          <Result />
+          <Comment />
           <FormHotCold />
-          <Status />
+          <Score />
         </main>
-      </div>
+      </div>  
     );
   };
 };
