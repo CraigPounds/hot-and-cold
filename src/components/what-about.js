@@ -14,7 +14,7 @@ export default function WhatAbout(props) {
           <li>3. You will <span className="underlined">get feedback</span> on how close 	&#40;&quot;hot&quot;&#41; or far 	&#40;&quot;cold&quot;&#41; your guess is.</li>
         </ol>
         <p>So, Are you ready?</p>
-        <button className="got-it-button" onClick={() => props.gotIt()}>Got It!</button>
+        <button className="got-it-button" onClick={() => props.gotItClick()}>Got It!</button>
       </section>
     </div>    
   );

@@ -62,10 +62,11 @@ p,
   font-size: 0.8em;
   padding: 0.4em 1.9em;
   margin-bottom: 22px;
-  border-radius: 3px;
   background: #1F253D;
+  cursor: pointer;
   color: #95A5A6;
   border: none;
+  border-radius: 3px;
 }
 
 .got-it-button:focus {

@@ -10,7 +10,9 @@ export default class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      comment: '',
+      answer: (Math.floor(Math.random() * 100) + 1),
+      instruction: 'Make your Guess!',
+      currentGuess: undefined,
       guesses: [],
       displayAbout: false
     };
@@ -22,44 +24,85 @@ export default class Game extends React.Component {
     });
   }
 
+  setCurrentGuess(guess) {
+    const NEW_ARRAY = this.state.guesses.concat(guess);
+    this.setState({
+      currentGuess: guess,
+      guesses: NEW_ARRAY
+    });
+    // console.log('guess ' + guess, 'answer: ' + this.state.answer, '# of guesses: ' + this.state.guesses.length);
+    this.checkGuess(guess);
+  }
+
   newGame() {
-    alert('new game');
+    console.log('new game');
+    this.setState({
+      answer: (Math.floor(Math.random() * 100) +1),
+      instruction: 'Make your Guess!',
+      currentGuess: undefined,
+      guesses: [],
+      displayAbout: false
+    });
+  }
+
+  setInstruction(instruction) {
+    this.setState({ instruction });
+  }
+
+  checkGuess(guess) {
+    console.log('guess ' + guess, 'answer: ' + this.state.answer, '# of guesses: ' + this.state.guesses.length);
+
+    const GUESS = parseInt(guess);
+    const DIFFERENCE = Math.abs(this.state.answer - GUESS);
+    let instruction = '';
+    let alreadyGuessed = false;
+
+    this.state.guesses.forEach((g) => {
+      if (g === guess) alreadyGuessed = true;
+    });
+
+    if (alreadyGuessed)  {
+      alert('You have already guessed this number');
+    } else if (GUESS < 1 || GUESS > 100) {
+      alert('Please choose a number between zero and 100');         
+    } else {
+      if (DIFFERENCE > 30) {
+        instruction = 'You\'re Very Cold';        
+      } else if (DIFFERENCE > 20) {
+        instruction = 'You are Cold';
+      } else if (DIFFERENCE > 10) {
+        instruction = 'You are Warm';
+      } else if (DIFFERENCE > 5) {
+        instruction = 'You are Hot';
+      } else if (DIFFERENCE > 0) {
+        instruction = 'You\'re Very Hot';      
+      } else {
+        instruction = 'You are Correct!';
+      }
+      console.log('diff', DIFFERENCE)
+      this.setInstruction(instruction);
+    } 
   }
 
   render() {
     if (this.state.displayAbout) {
-      return <WhatAbout gotIt={() => this.setState({displayAbout: false})}/>
+      return <WhatAbout gotItClick={() => this.setState({displayAbout: false})}/>
     } else {
       return (
           <div className="game">
             <Header 
-              onWhat={() => this.setAbout(true)}
-              onNewGame={() => this.newGame()}
+              onWhatClick={() => this.setAbout(true)}
+              onNewGameClick={() => this.newGame()}
             />
             <main className="main">
-              <Comment />
-              <FormHotCold />
-              <Score />
+              <Comment instruction={this.state.instruction}/>
+              <FormHotCold 
+                onGuessClick={(guess) => this.setCurrentGuess(guess)}
+              />
+              <Score guesses={this.state.guesses} />
             </main>
           </div>   
       );
-    }
-    
-  };
-
-  // render() {
-  //   return (     
-  //     <div className="game">
-  //       <Header 
-  //         onWhat={() => this.displayAbout()}
-  //         onNewGame={() => this.newGame()}
-  //       />
-  //       <main className="main">
-  //         <Comment />
-  //         <FormHotCold />
-  //         <Score />
-  //       </main>
-  //     </div>  
-  //   );
-  // };
+    }    
+  }; 
 };

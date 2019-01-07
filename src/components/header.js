@@ -8,10 +8,10 @@ export default function Header(props) {
       <nav className="navigation">
         <ul>
           <li>
-            <a href="#what" className="what" onClick={() => props.onWhat()}>WHAT ?</a>
+            <a href="#what" className="what" onClick={() => props.onWhatClick()}>WHAT ?</a>
           </li>
           <li className="float-right">
-            <a href="#new-game" className="new-game" onClick={() => props.onNewGame()}>+ NEW GAME</a>
+            <a href="#new-game" className="new-game" onClick={() => props.onNewGameClick()}>+ NEW GAME</a>
           </li>
         </ul>        
       </nav>

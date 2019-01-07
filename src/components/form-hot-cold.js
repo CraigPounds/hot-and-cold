@@ -3,12 +3,23 @@ import './form-hot-cold.css';
 
 export default class FormHotCold extends React.Component {
 
+  onSubmit(event) {
+    event.preventDefault();
+    const NUM = this.textInput.value.trim();
+    if (NUM && this.props.onGuessClick) {
+      this.props.onGuessClick(NUM);
+    }
+    this.textInput.value = '';
+  }
+
   render() {
 
     return (
-      <form action="#" className="form-hot-cold">
-        <input type="number" className="text-input" placeholder="Enter your Guess" required/>
-        <button type="submit" className="submit-button">Guess</button>
+      <form className="form-hot-cold" onSubmit={(e) => this.onSubmit(e)}>
+        <input type="number" className="text-input" ref={input => this.textInput = input} placeholder="Enter your Guess" required/>
+        <button type="submit" className="submit-button">
+          Guess
+        </button>
       </form>
     );
   }
