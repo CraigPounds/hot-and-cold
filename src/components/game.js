@@ -18,6 +18,16 @@ export default class Game extends React.Component {
     };
   }
 
+  newGame() {
+    this.setState({
+      answer: (Math.floor(Math.random() * 100) +1),
+      instruction: 'Make your Guess!',
+      currentGuess: undefined,
+      guesses: [],
+      displayAbout: false
+    });
+  }
+
   setAbout(about) {
     this.setState({
       displayAbout: about
@@ -30,19 +40,7 @@ export default class Game extends React.Component {
       currentGuess: guess,
       guesses: NEW_ARRAY
     });
-    // console.log('guess ' + guess, 'answer: ' + this.state.answer, '# of guesses: ' + this.state.guesses.length);
     this.checkGuess(guess);
-  }
-
-  newGame() {
-    console.log('new game');
-    this.setState({
-      answer: (Math.floor(Math.random() * 100) +1),
-      instruction: 'Make your Guess!',
-      currentGuess: undefined,
-      guesses: [],
-      displayAbout: false
-    });
   }
 
   setInstruction(instruction) {
@@ -50,8 +48,6 @@ export default class Game extends React.Component {
   }
 
   checkGuess(guess) {
-    console.log('guess ' + guess, 'answer: ' + this.state.answer, '# of guesses: ' + this.state.guesses.length);
-
     const GUESS = parseInt(guess);
     const DIFFERENCE = Math.abs(this.state.answer - GUESS);
     let instruction = '';
@@ -66,6 +62,7 @@ export default class Game extends React.Component {
     } else if (GUESS < 1 || GUESS > 100) {
       alert('Please choose a number between zero and 100');         
     } else {
+
       if (DIFFERENCE > 30) {
         instruction = 'You\'re Very Cold';        
       } else if (DIFFERENCE > 20) {
@@ -79,21 +76,18 @@ export default class Game extends React.Component {
       } else {
         instruction = 'You are Correct!';
       }
-      console.log('diff', DIFFERENCE)
       this.setInstruction(instruction);
     } 
   }
 
   render() {
+
     if (this.state.displayAbout) {
       return <WhatAbout gotItClick={() => this.setState({displayAbout: false})}/>
     } else {
       return (
           <div className="game">
-            <Header 
-              onWhatClick={() => this.setAbout(true)}
-              onNewGameClick={() => this.newGame()}
-            />
+            <Header onWhatClick={() => this.setAbout(true)} onNewGameClick={() => this.newGame()} />
             <main className="main">
               <Comment instruction={this.state.instruction}/>
               <FormHotCold 

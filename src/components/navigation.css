@@ -1,0 +1,18 @@
+.navigation {
+  text-align: left;  
+}
+
+li {
+  display: inline;
+}
+
+a {
+  font-size: 1.4em;
+  font-weight: 550;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.float-right {
+  float: right;
+}

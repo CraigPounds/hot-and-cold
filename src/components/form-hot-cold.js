@@ -16,7 +16,7 @@ export default class FormHotCold extends React.Component {
 
     return (
       <form className="form-hot-cold" onSubmit={(e) => this.onSubmit(e)}>
-        <input type="number" className="text-input" ref={input => this.textInput = input} placeholder="Enter your Guess" required/>
+        <input type="number" className="text-input" ref={input => this.textInput = input} placeholder="Enter your Guess" min="1" max="100"required/>
         <button type="submit" className="submit-button">
           Guess
         </button>
